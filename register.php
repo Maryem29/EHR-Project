@@ -1,42 +1,55 @@
-<!-- register.php -->
 <?php
-require 'config.php';
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+require 'config.php'; // Include the database configuration
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+    
 
-    $stmt = $pdo->prepare("INSERT INTO doctors (username, email, password_hash) VALUES (?, ?, ?)");
-    $stmt->execute([$username, $email, $password]);
 
-    echo "<p>Registration successful!</p>";
+    // Validate form input
+    if ($password !== $confirm_password) {
+        echo "<p>Error: Passwords do not match.</p>";
+    } else {
+        // Hash the password
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+        // Insert the doctor into the database
+        try {
+            $stmt = $pdo->prepare("INSERT INTO doctors (username, email, password) VALUES (?, ?, ?)");
+            $stmt->execute([$username, $email, $password_hash]);
+	    echo "<p>Registration successful! <a href='login.php'>Log in here</a>.</p>";
+
+	    
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) { // Duplicate entry error
+                echo "<p>Error: Username or email already exists.</p>";
+            } else {
+                echo "<p>Error: " . $e->getMessage() . "</p>";
+            }
+	}
+
+	
+    }
+    
 }
+
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Registration</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <h2>Doctor Registration</h2>
-    <form method="POST" action="register.php">
-        <label>Username:</label>
-        <input type="text" name="username" required><br>
 
-        <label>Email:</label>
-        <input type="email" name="email" required><br>
 
-        <label>Password:</label>
-        <input type="password" name="password" required><br>
-
-        <input type="submit" value="Register">
-    </form>
-</body>
-</html>
+<h2>Doctor Registration</h2>
+<form action="register.php" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required><br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" required><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required><br>
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" name="confirm_password" required><br>
+    <button type="submit">Register</button>
+</form>

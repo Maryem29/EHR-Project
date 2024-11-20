@@ -1,44 +1,36 @@
-<!-- login.php -->
 <?php
 session_start();
-require 'config.php';
+require 'config.php'; // Database connection
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $pdo->prepare("SELECT * FROM doctors WHERE username = ?");
+    // Fetch the doctor from the database
+    $stmt = $pdo->prepare("SELECT doctor_id, password FROM doctors WHERE username = ?");
     $stmt->execute([$username]);
-    $doctor = $stmt->fetch();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($doctor && password_verify($password, $doctor['password_hash'])) {
-        $_SESSION['doctor_id'] = $doctor['doctor_id'];
-        echo "<p>Login successful!</p>";
-        // Redirect to dashboard or another page
+    // Verify password
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['doctor_id'] = $user['doctor_id']; // Store doctor ID in session
+        header('Location: dashboard.php'); // Redirect to the dashboard page
+        exit;
     } else {
-        echo "<p>Invalid username or password.</p>";
+        echo "Invalid username or password.";
     }
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Login</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <h2>Doctor Login</h2>
-    <form method="POST" action="login.php">
-        <label>Username:</label>
-        <input type="text" name="username" required><br>
 
-        <label>Password:</label>
-        <input type="password" name="password" required><br>
+<form action="login.php" method="POST">
+	<p>Don't have an account? <a href="register.php">Register here</a>.</p>
+    <label for="username">Username:</label>
+    <input type="text" name="username" required><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required><br>
+    <button type="submit">Login</button>
+</form>
 
-        <input type="submit" value="Login">
-    </form>
-</body>
-</html>
+
+
