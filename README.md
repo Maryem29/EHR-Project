@@ -36,3 +36,8 @@ snapshots, SUS score calculation need to be there.
 5. In the report, write down who did what in the project.
 6. In the presentation, describe all the works for your project.
 In the same project, different students may have different scores, this depends on who did what.
+
+Important dates: 
+Project presentation: 16.January.2025 and 23.January.2025
+Project report submission deadline: 27.January.2025 23:59
+Written Exam Date and Time: 30.January.2025 14:00 - 15:30
