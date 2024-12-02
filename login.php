@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'login.html';
 require 'config.php'; // Database connection
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
