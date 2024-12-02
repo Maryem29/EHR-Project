@@ -22,16 +22,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
-
-<form action="login.php" method="POST">
-	<p>Don't have an account? <a href="register.php">Register here</a>.</p>
-    <label for="username">Username:</label>
-    <input type="text" name="username" required><br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" required><br>
-    <button type="submit">Login</button>
-</form>
-
-
-
