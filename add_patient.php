@@ -37,4 +37,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <button type="submit">Add Patient</button>
 </form>
 <a href="dashboard.php">Cancel and go back to Dashboard</a> <!-- Cancel action -->
-
