@@ -1,13 +1,17 @@
 <?php
-$host = 'localhost'; // or your database host
+$host = '127.0.0.1'; // Use 127.0.0.1 instead of 'localhost' to force TCP/IP
 $dbname = 'ehr_system';
-$username = 'root'; // your MySQL username
-$password = ''; // your MySQL password
+$username = 'root';
+$password = ''; // Replace with your MySQL password if set
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+    echo "Database connection successful!";
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    die("Database connection failed: " . $e->getMessage());
 }
 ?>
+

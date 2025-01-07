@@ -8,22 +8,20 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EHR System - Home</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background: #007bff; color: white; padding: 1rem; text-align: center; }
-        nav { margin: 1rem; text-align: center; }
-        nav a { margin: 0 1rem; text-decoration: none; color: #007bff; }
-        nav a:hover { text-decoration: underline; }
-        main { padding: 1rem; text-align: center; }
-    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css"> <!-- Replace with the path to your custom CSS -->
 </head>
 <body>
-    <header>
+    <!-- Header Section -->
+    <header class="bg-primary text-white text-center py-4">
         <h1>Welcome to the EHR System</h1>
     </header>
-    <main>
-        <?php if (!isset($_SESSION['doctor_id'])): ?>
-            <!-- Guest View -->
+
+    <!-- Main Section -->
+    <main class="container my-5">
+        <!-- Guest View -->
+        <section class="text-center">
             <h2>About Us</h2>
             <p>
                 Our EHR (Electronic Health Records) system is designed to simplify the management of patient data, ensuring security and privacy.
@@ -31,21 +29,15 @@ session_start();
             <p>
                 With this system, doctors can seamlessly add, update, and manage patient records and associated EHR data.
             </p>
-            <nav>
-                <a href="login.php">Login</a>
-                <a href="register.php">Register</a>
+            <nav class="mt-4">
+                <a href="login.php" class="btn btn-primary me-2">Login</a>
+                <a href="register.php" class="btn btn-secondary">Register</a>
             </nav>
-        <?php else: ?>
-            <!-- Logged-in View -->
-            <h2>Welcome, Doctor</h2>
-            <p>
-                You are logged in. Use the links below to navigate through the system.
-            </p>
-            <nav>
-                <a href="dashboard.php">Manage Patients</a>
-                <a href="logout.php">Logout</a>
-            </nav>
-        <?php endif; ?>
+        </section>
     </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
