@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - <?php echo $websiteName = "MedCloud"; ?></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        
+        body {
+            background-color: #eef2f8;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .navbar {
+            background-color: #F48FB1 !important;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f2ebed;
+        }
+        .nav-link {
+            color: #3b487b !important;
+        }
+        .about-section {
+            padding: 50px;
+            background: #eef2f8;
+        }
+        .about-title {
+            color: #3b487b;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.php">
+            <img src="MedCloud 2.png" alt="MedCloud logo" style="width: 40px; height: auto;"> <span style= "color: #3b487b;">MedCloud</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MedCloud's Introduction -->
+    <div class="container py-5">
+        <!-- About MedCloud Section -->
+        <div class="row align-items-center mb-5">
+            <div class="col-12 col-md-6 mb-4 mb-md-0">
+                <h1 class="about-title">About MedCloud</h1>
+                <p>Welcome to MedCloud, your one and only secure electronic health record system with functional and helpful features. Founded by our lovely and optimistic team in 2025. This platform is built with the sole purpose of aiding doctors with medical record-keeping and organising patient files for less work and clutter and better efficiency! We ensure seamless record organisation so you can ensure better patient care. MedCloud flair for better care ◡̈!</p>
+            </div>
+            <div class="col-12 col-md-6 text-center">
+                <img src="ehr1.jpg" alt="About Us Image" class="about-image img-fluid">
+            </div>
+        </div>
+
+        <!-- Our Mission Section -->
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+                <img src="ehr3.jpg" alt="Our Mission Image" class="about-image img-fluid">
+            </div>
+            <div class="col-12 col-md-6">
+                <h3 class="about-title">Our Mission</h3>
+                <p>This startup’s top priority is empowering healthcare professionals with a user-friendly, secure, and efficient EHR system for their daily use. What makes us different? The healthcare providers’ opinion and experience matters to us! Our system is designed with multiple feedback from healthcare professionals from across the globe. We centered our design, project outlook, and system usability and functionality around our core users. We can guarantee easy use and great functions for your healthcare providers. </p>
+            </div>
+        </div>
+    </div>
+        <br>
+        <br>
+        <br>
+          <!-- Meet Our Team Section -->
+            <div class="team-section py-5" style="background-color: #eef2f8; border: 1px solid #3b487b; margin-bottom: 20px;">
+                <h3 class="about-title text-center mb-4">Meet MedCloud's Team</h3>
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-12 col-sm-6 col-md-3 mb-4">
+                            <a href="https://github.com/kseniiavi" target="_blank">
+                                <img src="./team2.jpeg" alt="Kseniia" class="about-image rounded-circle img-fluid">
+                            </a>
+                            <h5>Kseniia</h5>
+                            <p>Lead Developer - </p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 mb-4">
+                            <a href="https://github.com/Maryem29" target="_blank">
+                                <img src="./team1.jpeg" alt="Maryem" class="about-image rounded-circle img-fluid">
+                            </a>
+                            <h5>Maryem</h5>
+                            <p>UI/UX Designer/ Project Manager - Passionate about creating fun website designs.</p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 mb-4">
+                            <a href="https://github.com/safrinfaizz" target="_blank">
+                                <img src="./team3.jpeg" alt="Safreena" class="about-image rounded-circle img-fluid">
+                            </a>
+                            <h5>Safreena</h5>
+                            <p>UI/UX Designer - Where creativity meets functionality.</p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 mb-4">
+                            <a href="" target="_blank">
+                                <img src="./team4.jpg" alt="Sena" class="about-image rounded-circle img-fluid">
+                            </a>
+                            <h5>Sena</h5>
+                            <p>Lead Developer - </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+
+    <footer class="text-center py-3" style="background-color: #F48FB1; color: #FFFFFF;">
+        &copy; 2025 MedCloud | All rights reserved.
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
